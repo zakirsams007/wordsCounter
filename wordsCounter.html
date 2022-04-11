@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wordsCounter</title>
+    <style>
+        body{
+            background-color: antiquewhite;
+            padding: 50px 300px;
+            text-align: center;
+        }
+        h1{
+            background-color: cadetblue;
+            margin: 0px;
+            width: 100%;
+            color: whitesmoke;
+            padding: 10px;
+            font-size: 30px;
+            font-family:'Courier New', Courier, monospace;
+        }
+        #txtarea{
+            width: 101.5%;
+            margin: 0px;
+            border-color: cadetblue;
+            outline: none;
+            font-size: 15px;
+            font-weight: 500; 
+        }
+        p{
+            background-color: cadetblue;
+            margin: 0px;
+            width: 100%;
+            color: azure;
+            font-size: 30px;
+            padding: 10px;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bolder;
+            
+
+        }
+
+
+    </style>
+</head>
+<body>
+    <h1> Words and Letter Counter </h1>
+    <textArea id="txtarea" cols="40" rows="10"></textArea>
+    <p> <span id="word"> 0 </span> words and
+         <span id="char"> 0 </span> character
+     </p>
+
+     <script>
+         let txtinput = document.getElementById("txtarea");
+
+         txtinput.addEventListener("input", function(){
+             let txt = this.value;
+             console.log(txt)
+
+             let char = txt.length;
+             document.getElementById("char").innerHTML = char;
+               
+             txt = txt.trim();
+             let countword = txt.split(" ");
+             let cleancount = countword.filter(function(count){
+                 return count != " ";
+             })
+             console.log(countword)
+             document.getElementById("word").innerHTML = cleancount.length
+              
+            
+         })
+
+
+
+     </script>
+    
+</body>
+</html>
